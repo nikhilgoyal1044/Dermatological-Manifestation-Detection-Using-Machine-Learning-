@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acne Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0ef;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        select,
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7ffe7;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Acne Disease Prediction</h1>
+        <form id="acneForm">
+            <label for="symptoms">Enter your symptoms:</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="e.g., redness, swelling, pimples" required>
+            
+            <label for="image">Upload an image of your skin:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="button" onclick="predictDisease()">Predict</button>
+        </form>
+
+        <div id="output" class="output" style="display: none;">
+            <h3>Prediction Result:</h3>
+            <p id="resultText">Your results will appear here...</p>
+        </div>
+    </div>
+
+    <script>
+        function predictDisease() {
+            // Fetch the user's input
+            const symptoms = document.getElementById('symptoms').value;
+            const outputDiv = document.getElementById('output');
+            const resultText = document.getElementById('resultText');
+            
+            // Basic validation
+            if (!symptoms) {
+                alert("Please enter your symptoms.");
+                return;
+            }
+
+            // Simulate a prediction result
+            // (In a real application, this would involve sending data to a server or ML model)
+            outputDiv.style.display = 'block';
+            resultText.textContent = `Based on the symptoms '${symptoms}', the prediction is: Mild Acne. Please consult a dermatologist for further advice.`;
+        }
+    </script>
+</body>
+</html>

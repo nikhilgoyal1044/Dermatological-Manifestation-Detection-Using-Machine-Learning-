@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pigmentation Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0ef;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f8e9;
+            border: 1px solid #8bc34a;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pigmentation Prediction Tool</h1>
+        <p>Enter your symptoms or upload an image of the affected area for a quick analysis.</p>
+        <form id="pigmentationForm">
+            <label for="symptoms">Enter your symptoms:</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="e.g., dark spots, uneven skin tone" required>
+            
+            <label for="image">Upload a skin image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="button" onclick="predictPigmentation()">Predict</button>
+        </form>
+
+        <div id="output" class="output" style="display: none;">
+            <h3>Prediction Result:</h3>
+            <p id="resultText">Your results will appear here...</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Skin Health AI. All rights reserved.
+    </footer>
+
+    <script>
+        function predictPigmentation() {
+            // Get input values
+            const symptoms = document.getElementById('symptoms').value;
+            const outputDiv = document.getElementById('output');
+            const resultText = document.getElementById('resultText');
+
+            // Simple validation
+            if (!symptoms) {
+                alert("Please enter your symptoms before predicting.");
+                return;
+            }
+
+            // Display a mock prediction (replace with actual backend call for real prediction)
+            outputDiv.style.display = 'block';
+            resultText.textContent = `Based on your symptoms ('${symptoms}'), the prediction suggests Hyperpigmentation. For accurate diagnosis, please consult a dermatologist.`;
+        }
+    </script>
+</body>
+</html>
